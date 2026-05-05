@@ -1,0 +1,231 @@
+{
+  "mappings": [
+    {
+      "name": "GET /branches/{uuid} - resolve vendor_uuid for known branches",
+      "metadata": {
+        "wiremock-gui": {
+          "folder": "/branch/resolve-vendor"
+        }
+      },
+      "priority": 2,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/branches/[0-9a-f-]{36}"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "vendor_uuid": "c079081e-ae88-40b3-8ee0-fbcca008899c"
+        }
+      }
+    },
+
+    {
+      "name": "GET /branches/{uuid} - 404 for unknown branch (00000000-0000-0000-0000-000000000000)",
+      "metadata": {
+        "wiremock-gui": {
+          "folder": "/branch/resolve-vendor"
+        }
+      },
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPath": "/branches/00000000-0000-0000-0000-000000000000"
+      },
+      "response": {
+        "status": 404,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "message": "Branch not found."
+        }
+      }
+    },
+
+    {
+      "name": "POST /vendors/{uuid}/branches - create branch",
+      "metadata": {
+        "wiremock-gui": {
+          "folder": "/branch/create"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "/vendors/[0-9a-f-]{36}/branches"
+      },
+      "response": {
+        "status": 201,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "uuid": "{{jsonPath request.body '$.uuid'}}",
+          "name": "{{jsonPath request.body '$.name'}}",
+          "telephone": "{{jsonPath request.body '$.telephone'}}",
+          "email": "{{jsonPath request.body '$.email'}}",
+          "is_active": true,
+          "responsible_person": null,
+          "address": {
+            "street": "{{jsonPath request.body '$.address.street'}}",
+            "city": "{{jsonPath request.body '$.address.city'}}",
+            "postcode": "{{jsonPath request.body '$.address.postcode'}}",
+            "country_code": "{{jsonPath request.body '$.address.country_code'}}"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "PUT /vendors/{uuid}/branches/{uuid} - update branch",
+      "metadata": {
+        "wiremock-gui": {
+          "folder": "/branch/update"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "urlPathPattern": "/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "uuid": "{{request.pathSegments.[3]}}",
+          "name": "{{jsonPath request.body '$.name'}}",
+          "telephone": "{{jsonPath request.body '$.telephone'}}",
+          "email": "{{jsonPath request.body '$.email'}}",
+          "is_active": true,
+          "responsible_person": null,
+          "address": {
+            "street": "{{jsonPath request.body '$.address.street'}}",
+            "city": "{{jsonPath request.body '$.address.city'}}",
+            "postcode": "{{jsonPath request.body '$.address.postcode'}}",
+            "country_code": "{{jsonPath request.body '$.address.country_code'}}"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "GET /vendors/{uuid}/branches - branches exist (default, no scenario)",
+      "metadata": {
+        "wiremock-gui": {
+          "folder": "/branch/list"
+        }
+      },
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/vendors/[0-9a-f-]{36}/branches"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            {
+              "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+              "name": "Praha - Hlavní",
+              "telephone": "+420111222333",
+              "email": "praha@example.com",
+              "is_active": true,
+              "responsible_person": null,
+              "address": {
+                "street": "Hlavní 1",
+                "city": "Praha",
+                "postcode": "110 00",
+                "country_code": "CZ"
+              }
+            },
+            {
+              "uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+              "name": "Brno - Centrum",
+              "telephone": "+420222333444",
+              "email": "brno@example.com",
+              "is_active": true,
+              "responsible_person": null,
+              "address": {
+                "street": "Náměstí Svobody 5",
+                "city": "Brno",
+                "postcode": "602 00",
+                "country_code": "CZ"
+              }
+            },
+            {
+              "uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+              "name": "Ostrava - Poruba",
+              "telephone": "+420333444555",
+              "email": "ostrava@example.com",
+              "is_active": true,
+              "responsible_person": null,
+              "address": {
+                "street": "Hlavní třída 12",
+                "city": "Ostrava",
+                "postcode": "708 00",
+                "country_code": "CZ"
+              }
+            },
+            {
+              "uuid": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+              "name": "Plzeň - Bory",
+              "telephone": "+420444555666",
+              "email": "plzen@example.com",
+              "is_active": true,
+              "responsible_person": null,
+              "address": {
+                "street": "Borská 18",
+                "city": "Plzeň",
+                "postcode": "301 00",
+                "country_code": "CZ"
+              }
+            }
+          ],
+          "meta": {
+            "current_page": 1,
+            "per_page": 20,
+            "total": 4,
+            "last_page": 1
+          }
+        }
+      }
+    },
+
+    {
+      "name": "GET /vendors/{uuid}/branch-options - branches exist (default, no scenario)",
+      "metadata": {
+        "wiremock-gui": {
+          "folder": "/branch/options"
+        }
+      },
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/vendors/[0-9a-f-]{36}/branch-options"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": [
+          {
+            "uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+            "name": "Praha - Hlavní",
+            "address": "Hlavní 1, Praha, 110 00"
+          },
+          {
+            "uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+            "name": "Brno - Centrum",
+            "address": "Náměstí Svobody 5, Brno, 602 00"
+          },
+          {
+            "uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+            "name": "Ostrava - Poruba",
+            "address": "Hlavní třída 12, Ostrava, 708 00"
+          },
+          {
+            "uuid": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+            "name": "Plzeň - Bory",
+            "address": "Borská 18, Plzeň, 301 00"
+          }
+        ]
+      }
+    }
+  ]
+}

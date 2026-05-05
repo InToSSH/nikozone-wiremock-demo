@@ -1,0 +1,10 @@
+services:
+  wiremock:
+    ports:
+      - "${WIREMOCK_API_PORT:-8088}:8089"
+      - "${WIREMOCK_GUI_PORT:-8087}:8080"
+
+  mailhog:
+    ports:
+      - "${MAILHOG_SMTP_PORT:-1025}:1025"
+      - "${MAILHOG_UI_PORT:-8025}:8025"

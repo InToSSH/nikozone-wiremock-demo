@@ -1,0 +1,3 @@
+Placeholder so the wiremock/__files/ directory is preserved in version control.
+WireMock looks here for binary response bodies referenced via `bodyFileName` in mappings.
+The current mappings only use inline `jsonBody`, so this directory is intentionally empty.

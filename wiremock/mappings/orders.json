@@ -1,0 +1,1121 @@
+{
+  "mappings": [
+
+    {
+      "name": "GET pickup order — CODE001 (Praha, simple items, can amend + complete)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE001$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260001",
+          "created_at": "2026-04-20T08:30:00Z",
+          "items": [
+            {
+              "item_id": "1001",
+              "sku": "TRI-MEN-CLS-M",
+              "title": "Pánské tričko Classic – M",
+              "image": "https://picsum.photos/seed/tri-men-cls-m/80/80",
+              "type": "simple",
+              "qty": 2,
+              "price": { "value": 299.00, "currency": "CZK" },
+              "row_total": { "value": 598.00, "currency": "CZK" }
+            },
+            {
+              "item_id": "1002",
+              "sku": "HOD-UNI-L",
+              "title": "Unisex mikina Comfort – L",
+              "image": "https://picsum.photos/seed/hod-uni-l/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 899.00, "currency": "CZK" },
+              "row_total": { "value": 899.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 1497.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 1497.00, "currency": "CZK" },
+          "can_amend": true,
+          "can_complete": true
+        }
+      }
+    },
+
+    {
+      "name": "GET pickup order — CODE002 (Praha, bundle item, can amend + complete)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE002$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260002",
+          "created_at": "2026-04-20T09:00:00Z",
+          "items": [
+            {
+              "item_id": "2001",
+              "sku": "BUNDLE-STARTER-KIT",
+              "title": "Starter Kit",
+              "image": "https://picsum.photos/seed/bundle-starter/80/80",
+              "type": "bundle",
+              "qty": 1,
+              "price": { "value": 1199.00, "currency": "CZK" },
+              "row_total": { "value": 1199.00, "currency": "CZK" },
+              "options": [
+                {
+                  "title": "Tričko",
+                  "selections": [
+                    {
+                      "sku": "TRI-MEN-CLS-L",
+                      "title": "Pánské tričko Classic – L",
+                      "image": "https://picsum.photos/seed/tri-men-cls-l/80/80",
+                      "qty": 1
+                    }
+                  ]
+                },
+                {
+                  "title": "Mikina",
+                  "selections": [
+                    {
+                      "sku": "HOD-UNI-M",
+                      "title": "Unisex mikina Comfort – M",
+                      "image": "https://picsum.photos/seed/hod-uni-m/80/80",
+                      "qty": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "item_id": "2002",
+              "sku": "ACC-BRN-SCF-BLK",
+              "title": "Šála Comfort – černá",
+              "image": "https://picsum.photos/seed/acc-brn-scf-blk/80/80",
+              "type": "simple",
+              "qty": 2,
+              "price": { "value": 349.00, "currency": "CZK" },
+              "row_total": { "value": 698.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 1897.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 1897.00, "currency": "CZK" },
+          "can_amend": true,
+          "can_complete": true
+        }
+      }
+    },
+
+    {
+      "name": "GET pickup order — CODE003 (Praha, already paid partially, cannot amend)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE003$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260003",
+          "created_at": "2026-04-19T14:20:00Z",
+          "items": [
+            {
+              "item_id": "3001",
+              "sku": "DRE-WOM-S",
+              "title": "Dámské šaty Midi – S",
+              "image": "https://picsum.photos/seed/dre-wom-s/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 1299.00, "currency": "CZK" },
+              "row_total": { "value": 1299.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 1299.00, "currency": "CZK" },
+          "total_paid": { "value": 500.00, "currency": "CZK" },
+          "total_due": { "value": 799.00, "currency": "CZK" },
+          "can_amend": false,
+          "can_complete": true
+        }
+      }
+    },
+
+    {
+      "name": "GET pickup order — CODE404 (not found → 404)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/pickup/CODE404$"
+      },
+      "response": {
+        "status": 404,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Order not found." }
+      }
+    },
+
+    {
+      "name": "GET pickup order — CODE422 (wrong branch → 422)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/pickup/CODE422$"
+      },
+      "response": {
+        "status": 422,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "This order belongs to a different branch." }
+      }
+    },
+
+    {
+      "name": "GET pickup order — CODE410 (already closed → 410)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/pickup/CODE410$"
+      },
+      "response": {
+        "status": 410,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "This order has already been completed / cancelled." }
+      }
+    },
+
+    {
+      "name": "GET pickup order — CODE502 (Magento down → 502)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/pickup/CODE502$"
+      },
+      "response": {
+        "status": 502,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Upstream Magento service unavailable." }
+      }
+    },
+
+    {
+      "name": "POST pickup amend — CODE001 success (state: Started → Amended)",
+      "scenarioName": "pickup-amend-CODE001",
+      "requiredScenarioState": "Started",
+      "newScenarioState": "Amended",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE001/amend$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260001A",
+          "original_order_num": "ORD-20260001",
+          "created_at": "2026-04-20T08:35:00Z",
+          "items": [
+            {
+              "item_id": "1001",
+              "sku": "TRI-MEN-CLS-M",
+              "title": "Pánské tričko Classic – M",
+              "image": "https://picsum.photos/seed/tri-men-cls-m/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 299.00, "currency": "CZK" },
+              "row_total": { "value": 299.00, "currency": "CZK" }
+            },
+            {
+              "item_id": "1002",
+              "sku": "HOD-UNI-L",
+              "title": "Unisex mikina Comfort – L",
+              "image": "https://picsum.photos/seed/hod-uni-l/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 899.00, "currency": "CZK" },
+              "row_total": { "value": 899.00, "currency": "CZK" }
+            }
+          ],
+          "can_amend": true,
+          "can_complete": true,
+          "grand_total": { "value": 1198.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 1198.00, "currency": "CZK" }
+        }
+      }
+    },
+
+    {
+      "name": "POST pickup amend — CODE001 second amend (state: Amended → Started)",
+      "scenarioName": "pickup-amend-CODE001",
+      "requiredScenarioState": "Amended",
+      "newScenarioState": "Started",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE001/amend$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260001B",
+          "original_order_num": "ORD-20260001A",
+          "created_at": "2026-04-20T08:40:00Z",
+          "items": [
+            {
+              "item_id": "1001",
+              "sku": "TRI-MEN-CLS-M",
+              "title": "Pánské tričko Classic – M",
+              "image": "https://picsum.photos/seed/tri-men-cls-m/80/80",
+              "type": "simple",
+              "qty": 2,
+              "price": { "value": 299.00, "currency": "CZK" },
+              "row_total": { "value": 598.00, "currency": "CZK" }
+            }
+          ],
+          "can_amend": true,
+          "can_complete": true,
+          "grand_total": { "value": 598.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 598.00, "currency": "CZK" }
+        }
+      }
+    },
+
+    {
+      "name": "POST pickup amend — CODE_AMEND_ERR Magento rejects (422 — last item removal)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/pickup/CODE_AMEND_ERR/amend$"
+      },
+      "response": {
+        "status": 422,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Cannot remove the last item from an order." }
+      }
+    },
+
+    {
+      "name": "POST pickup amend — CODE_AMEND_502 Magento down (502)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/pickup/CODE_AMEND_502/amend$"
+      },
+      "response": {
+        "status": 502,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Upstream Magento service unavailable." }
+      }
+    },
+
+    {
+      "name": "POST pickup complete — CODE001 success",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE001/complete$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "success": true }
+      }
+    },
+
+    {
+      "name": "POST pickup complete — CODE002 success",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE002/complete$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "success": true }
+      }
+    },
+
+    {
+      "name": "POST pickup complete — CODE003 success",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/pickup/CODE003/complete$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "success": true }
+      }
+    },
+
+    {
+      "name": "POST pickup complete — CODE_COMP_502 Magento down (502)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/pickup/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/pickup/CODE_COMP_502/complete$"
+      },
+      "response": {
+        "status": 502,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Upstream Magento service unavailable." }
+      }
+    },
+
+    {
+      "name": "GET orders list — Praha page 1 (default, 3 pages of results)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            {
+              "order_num": "ORD-20260001",
+              "original_order_num": null,
+              "status": "pending",
+              "created_at": "2026-04-20T08:30:00Z",
+              "first_name": "Jan",
+              "last_name": "Novák",
+              "email": "jan.novak@example.com",
+              "phone": "+420601111222",
+              "grand_total": { "value": 1497.00, "currency": "CZK" },
+              "can_amend": true,
+              "can_complete": true,
+              "can_cancel": true
+            },
+            {
+              "order_num": "ORD-20260002",
+              "original_order_num": null,
+              "status": "pending",
+              "created_at": "2026-04-20T09:00:00Z",
+              "first_name": "Marie",
+              "last_name": "Svobodová",
+              "email": "marie.svobodova@example.com",
+              "phone": "+420602333444",
+              "grand_total": { "value": 1897.00, "currency": "CZK" },
+              "can_amend": true,
+              "can_complete": true,
+              "can_cancel": true
+            },
+            {
+              "order_num": "ORD-20260003",
+              "original_order_num": null,
+              "status": "processing",
+              "created_at": "2026-04-19T14:20:00Z",
+              "first_name": "Petra",
+              "last_name": "Dvořáková",
+              "email": "petra.dvorakova@example.com",
+              "phone": "+420603555666",
+              "grand_total": { "value": 1299.00, "currency": "CZK" },
+              "can_amend": false,
+              "can_complete": true,
+              "can_cancel": false
+            },
+            {
+              "order_num": "ORD-20260004",
+              "original_order_num": null,
+              "status": "pending",
+              "created_at": "2026-04-19T11:10:00Z",
+              "first_name": "Tomáš",
+              "last_name": "Procházka",
+              "email": "tomas.prochazka@example.com",
+              "phone": "+420604777888",
+              "grand_total": { "value": 598.00, "currency": "CZK" },
+              "can_amend": true,
+              "can_complete": false,
+              "can_cancel": false
+            },
+            {
+              "order_num": "ORD-20260001A",
+              "original_order_num": "ORD-20260001",
+              "status": "pending",
+              "created_at": "2026-04-20T08:35:00Z",
+              "first_name": "Jan",
+              "last_name": "Novák",
+              "email": "jan.novak@example.com",
+              "phone": "+420601111222",
+              "grand_total": { "value": 1198.00, "currency": "CZK" },
+              "can_amend": true,
+              "can_complete": true,
+              "can_cancel": true
+            }
+          ],
+          "meta": { "current_page": 1, "per_page": 25, "total": 67, "last_page": 3 }
+        }
+      }
+    },
+
+    {
+      "name": "GET orders list — Praha page 2",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 6,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders$",
+        "queryParameters": {
+          "page": { "equalTo": "2" }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            {
+              "order_num": "ORD-20260010",
+              "original_order_num": null,
+              "status": "complete",
+              "created_at": "2026-04-18T10:00:00Z",
+              "first_name": "Lucie",
+              "last_name": "Čermáková",
+              "email": "lucie.cermakova@example.com",
+              "phone": "+420605111222",
+              "grand_total": { "value": 2490.00, "currency": "CZK" },
+              "can_amend": false,
+              "can_complete": false,
+              "can_cancel": false
+            },
+            {
+              "order_num": "ORD-20260011",
+              "original_order_num": null,
+              "status": "canceled",
+              "created_at": "2026-04-17T16:45:00Z",
+              "first_name": "Ondřej",
+              "last_name": "Krejčí",
+              "email": "ondrej.krejci@example.com",
+              "phone": "+420606333444",
+              "grand_total": { "value": 449.00, "currency": "CZK" },
+              "can_amend": false,
+              "can_complete": false,
+              "can_cancel": false
+            }
+          ],
+          "meta": { "current_page": 2, "per_page": 20, "total": 67, "last_page": 3 }
+        }
+      }
+    },
+
+    {
+      "name": "GET orders list — Praha filtered by status=pending",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 6,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders$",
+        "queryParameters": {
+          "filters[status][in][0]": { "equalTo": "pending" }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            {
+              "order_num": "ORD-20260001",
+              "original_order_num": null,
+              "status": "pending",
+              "created_at": "2026-04-20T08:30:00Z",
+              "first_name": "Jan",
+              "last_name": "Novák",
+              "email": "jan.novak@example.com",
+              "phone": "+420601111222",
+              "grand_total": { "value": 1497.00, "currency": "CZK" },
+              "can_amend": true,
+              "can_complete": true,
+              "can_cancel": true
+            },
+            {
+              "order_num": "ORD-20260002",
+              "original_order_num": null,
+              "status": "pending",
+              "created_at": "2026-04-20T09:00:00Z",
+              "first_name": "Marie",
+              "last_name": "Svobodová",
+              "email": "marie.svobodova@example.com",
+              "phone": "+420602333444",
+              "grand_total": { "value": 1897.00, "currency": "CZK" },
+              "can_amend": true,
+              "can_complete": true,
+              "can_cancel": true
+            },
+            {
+              "order_num": "ORD-20260004",
+              "original_order_num": null,
+              "status": "pending",
+              "created_at": "2026-04-19T11:10:00Z",
+              "first_name": "Tomáš",
+              "last_name": "Procházka",
+              "email": "tomas.prochazka@example.com",
+              "phone": "+420604777888",
+              "grand_total": { "value": 598.00, "currency": "CZK" },
+              "can_amend": true,
+              "can_complete": true,
+              "can_cancel": true
+            }
+          ],
+          "meta": { "current_page": 1, "per_page": 20, "total": 3, "last_page": 1 }
+        }
+      }
+    },
+
+    {
+      "name": "GET orders list — Plzeň (empty branch)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Plzen" } },
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/dddddddd-dddd-dddd-dddd-dddddddddddd/orders$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [],
+          "meta": { "current_page": 1, "per_page": 20, "total": 0, "last_page": 1 }
+        }
+      }
+    },
+
+    {
+      "name": "GET order detail — ORD-20260001 (pending, can amend/complete/cancel, has pickup code)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260001$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260001",
+          "original_order_num": null,
+          "status": "pending",
+          "created_at": "2026-04-20T08:30:00Z",
+          "first_name": "Jan",
+          "last_name": "Novák",
+          "email": "jan.novak@example.com",
+          "phone": "+420601111222",
+          "billing_address": {
+            "street": "Václavské náměstí 1",
+            "city": "Praha",
+            "postcode": "11000",
+            "country_code": "CZ"
+          },
+          "shipping_address": {
+            "street": "Václavské náměstí 1",
+            "city": "Praha",
+            "postcode": "11000",
+            "country_code": "CZ"
+          },
+          "items": [
+            {
+              "item_id": "1001",
+              "sku": "TRI-MEN-CLS-M",
+              "title": "Pánské tričko Classic – M",
+              "image": "https://picsum.photos/seed/tri-men-cls-m/80/80",
+              "type": "simple",
+              "qty": 2,
+              "price": { "value": 299.00, "currency": "CZK" },
+              "row_total": { "value": 598.00, "currency": "CZK" }
+            },
+            {
+              "item_id": "1002",
+              "sku": "HOD-UNI-L",
+              "title": "Unisex mikina Comfort – L",
+              "image": "https://picsum.photos/seed/hod-uni-l/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 899.00, "currency": "CZK" },
+              "row_total": { "value": 899.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 1497.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 1497.00, "currency": "CZK" },
+          "can_amend": true,
+          "can_complete": true,
+          "can_cancel": true,
+          "pickup_code": "CODE001"
+        }
+      }
+    },
+
+    {
+      "name": "GET order detail — ORD-20260002 (pending, bundle item, can amend/complete/cancel)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260002$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260002",
+          "original_order_num": null,
+          "status": "pending",
+          "created_at": "2026-04-20T09:00:00Z",
+          "first_name": "Marie",
+          "last_name": "Svobodová",
+          "email": "marie.svobodova@example.com",
+          "phone": "+420602333444",
+          "billing_address": {
+            "street": "Náměstí Míru 5",
+            "city": "Praha",
+            "postcode": "12000",
+            "country_code": "CZ"
+          },
+          "shipping_address": {
+            "street": "Náměstí Míru 5",
+            "city": "Praha",
+            "postcode": "12000",
+            "country_code": "CZ"
+          },
+          "items": [
+            {
+              "item_id": "2001",
+              "sku": "BUNDLE-STARTER-KIT",
+              "title": "Starter Kit",
+              "image": "https://picsum.photos/seed/bundle-starter/80/80",
+              "type": "bundle",
+              "qty": 1,
+              "price": { "value": 1199.00, "currency": "CZK" },
+              "row_total": { "value": 1199.00, "currency": "CZK" },
+              "options": [
+                {
+                  "title": "Tričko",
+                  "selections": [
+                    {
+                      "sku": "TRI-MEN-CLS-L",
+                      "title": "Pánské tričko Classic – L",
+                      "image": "https://picsum.photos/seed/tri-men-cls-l/80/80",
+                      "qty": 1
+                    }
+                  ]
+                },
+                {
+                  "title": "Mikina",
+                  "selections": [
+                    {
+                      "sku": "HOD-UNI-M",
+                      "title": "Unisex mikina Comfort – M",
+                      "image": "https://picsum.photos/seed/hod-uni-m/80/80",
+                      "qty": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "item_id": "2002",
+              "sku": "ACC-BRN-SCF-BLK",
+              "title": "Šála Comfort – černá",
+              "image": "https://picsum.photos/seed/acc-brn-scf-blk/80/80",
+              "type": "simple",
+              "qty": 2,
+              "price": { "value": 349.00, "currency": "CZK" },
+              "row_total": { "value": 698.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 1897.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 1897.00, "currency": "CZK" },
+          "can_amend": true,
+          "can_complete": true,
+          "can_cancel": true,
+          "pickup_code": "CODE002"
+        }
+      }
+    },
+
+    {
+      "name": "GET order detail — ORD-20260010 (complete, no actions available)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260010$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260010",
+          "original_order_num": null,
+          "status": "complete",
+          "created_at": "2026-04-18T10:00:00Z",
+          "first_name": "Lucie",
+          "last_name": "Čermáková",
+          "email": "lucie.cermakova@example.com",
+          "phone": "+420605111222",
+          "billing_address": {
+            "street": "Korunní 12",
+            "city": "Praha",
+            "postcode": "13000",
+            "country_code": "CZ"
+          },
+          "shipping_address": {
+            "street": "Korunní 12",
+            "city": "Praha",
+            "postcode": "13000",
+            "country_code": "CZ"
+          },
+          "items": [
+            {
+              "item_id": "5001",
+              "sku": "JEA-MEN-W32",
+              "title": "Pánské džíny Slim – W32",
+              "image": "https://picsum.photos/seed/jea-men-w32/80/80",
+              "type": "simple",
+              "qty": 2,
+              "price": { "value": 999.00, "currency": "CZK" },
+              "row_total": { "value": 1998.00, "currency": "CZK" }
+            },
+            {
+              "item_id": "5002",
+              "sku": "ACC-BRN-BLT-M",
+              "title": "Kožený pásek – M (85–95 cm)",
+              "image": "https://picsum.photos/seed/acc-brn-blt-m/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 492.00, "currency": "CZK" },
+              "row_total": { "value": 492.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 2490.00, "currency": "CZK" },
+          "total_paid": { "value": 2490.00, "currency": "CZK" },
+          "total_due": { "value": 0.00, "currency": "CZK" },
+          "can_amend": false,
+          "can_complete": false,
+          "can_cancel": false,
+          "pickup_code": "COMP10"
+        }
+      }
+    },
+
+    {
+      "name": "GET order detail — ORD-20260011 (canceled, no actions available)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260011$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260011",
+          "original_order_num": null,
+          "status": "canceled",
+          "created_at": "2026-04-17T16:45:00Z",
+          "first_name": "Ondřej",
+          "last_name": "Krejčí",
+          "email": "ondrej.krejci@example.com",
+          "phone": "+420606333444",
+          "billing_address": {
+            "street": "Mánesova 8",
+            "city": "Praha",
+            "postcode": "12000",
+            "country_code": "CZ"
+          },
+          "shipping_address": {
+            "street": "Mánesova 8",
+            "city": "Praha",
+            "postcode": "12000",
+            "country_code": "CZ"
+          },
+          "items": [
+            {
+              "item_id": "6001",
+              "sku": "TRI-WOM-FLW-M",
+              "title": "Dámské tričko Flow – M",
+              "image": "https://picsum.photos/seed/tri-wom-flw-m/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 449.00, "currency": "CZK" },
+              "row_total": { "value": 449.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 449.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 449.00, "currency": "CZK" },
+          "can_amend": false,
+          "can_complete": false,
+          "can_cancel": false,
+          "pickup_code": "CNCL11"
+        }
+      }
+    },
+
+    {
+      "name": "GET order detail — ORD-NOT-FOUND (404)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/ORD-NOT-FOUND$"
+      },
+      "response": {
+        "status": 404,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Order not found." }
+      }
+    },
+
+    {
+      "name": "POST order amend — ORD-20260001 success (state: Started → Amended)",
+      "scenarioName": "order-amend-ORD-20260001",
+      "requiredScenarioState": "Started",
+      "newScenarioState": "Amended",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260001/amend$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260001A",
+          "original_order_num": "ORD-20260001",
+          "created_at": "2026-04-20T08:35:00Z",
+          "items": [
+            {
+              "item_id": "1001",
+              "sku": "TRI-MEN-CLS-M",
+              "title": "Pánské tričko Classic – M",
+              "image": "https://picsum.photos/seed/tri-men-cls-m/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 299.00, "currency": "CZK" },
+              "row_total": { "value": 299.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 299.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 299.00, "currency": "CZK" }
+        }
+      }
+    },
+
+    {
+      "name": "POST order amend — ORD-20260001 already replaced (state: Amended → Started)",
+      "scenarioName": "order-amend-ORD-20260001",
+      "requiredScenarioState": "Amended",
+      "newScenarioState": "Started",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260001/amend$"
+      },
+      "response": {
+        "status": 422,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "This order has already been replaced by ORD-20260001A." }
+      }
+    },
+
+    {
+      "name": "POST order amend — ORD-20260002 success (single amend, no state machine needed)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260002/amend$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "order_num": "ORD-20260002A",
+          "original_order_num": "ORD-20260002",
+          "created_at": "2026-04-20T09:10:00Z",
+          "items": [
+            {
+              "item_id": "2002",
+              "sku": "ACC-BRN-SCF-BLK",
+              "title": "Šála Comfort – černá",
+              "image": "https://picsum.photos/seed/acc-brn-scf-blk/80/80",
+              "type": "simple",
+              "qty": 1,
+              "price": { "value": 349.00, "currency": "CZK" },
+              "row_total": { "value": 349.00, "currency": "CZK" }
+            }
+          ],
+          "grand_total": { "value": 349.00, "currency": "CZK" },
+          "total_paid": { "value": 0.00, "currency": "CZK" },
+          "total_due": { "value": 349.00, "currency": "CZK" }
+        }
+      }
+    },
+
+    {
+      "name": "POST order amend — ORD-AMEND-ERR Magento rejects (422)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/ORD-AMEND-ERR/amend$"
+      },
+      "response": {
+        "status": 422,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Cannot remove the last item from an order." }
+      }
+    },
+
+    {
+      "name": "POST order amend — ORD-AMEND-502 Magento down (502)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/ORD-AMEND-502/amend$"
+      },
+      "response": {
+        "status": 502,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Upstream Magento service unavailable." }
+      }
+    },
+
+    {
+      "name": "POST order complete — ORD-20260001 success",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260001/complete$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "success": true }
+      }
+    },
+
+    {
+      "name": "POST order complete — ORD-20260003 success (processing → complete)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260003/complete$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "success": true }
+      }
+    },
+
+    {
+      "name": "POST order complete — ORD-COMP-ERR Magento rejects (422)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/ORD-COMP-ERR/complete$"
+      },
+      "response": {
+        "status": 422,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Order cannot be completed in its current state." }
+      }
+    },
+
+    {
+      "name": "POST order complete — ORD-COMP-502 Magento down (502)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/ORD-COMP-502/complete$"
+      },
+      "response": {
+        "status": 502,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Upstream Magento service unavailable." }
+      }
+    },
+
+    {
+      "name": "POST order cancel — ORD-20260004 success",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/orders/ORD-20260004/cancel$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "success": true }
+      }
+    },
+
+    {
+      "name": "POST order cancel — ORD-CNCL-ERR Magento rejects (422 — already completed)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/ORD-CNCL-ERR/cancel$"
+      },
+      "response": {
+        "status": 422,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Cannot cancel an order that has already been completed." }
+      }
+    },
+
+    {
+      "name": "POST order cancel — ORD-CNCL-502 Magento down (502)",
+      "metadata": { "wiremock-gui": { "folder": "/orders/management/errors" } },
+      "priority": 5,
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/orders/ORD-CNCL-502/cancel$"
+      },
+      "response": {
+        "status": 502,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Upstream Magento service unavailable." }
+      }
+    }
+
+  ]
+}

@@ -1,0 +1,133 @@
+{
+    "mappings": [
+        {
+            "name": "POST /vendors - scenario: created (state: Started)",
+            "scenarioName": "vendor-create",
+            "requiredScenarioState": "Started",
+            "metadata": {
+                "wiremock-gui": {
+                    "folder": "/vendor/create"
+                }
+            },
+            "request": {
+                "method": "POST",
+                "url": "/vendors"
+            },
+            "response": {
+                "status": 201,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "jsonBody": {
+                    "uuid": "{{jsonPath request.body '$.uuid'}}",
+                    "name": "{{jsonPath request.body '$.name'}}",
+                    "cin": "{{jsonPath request.body '$.cin'}}",
+                    "tin": "{{jsonPath request.body '$.tin'}}",
+                    "telephone": "{{jsonPath request.body '$.telephone'}}",
+                    "email": "{{jsonPath request.body '$.email'}}",
+                    "auto_accept_catalog_sets": false,
+                    "status": "pending",
+                    "address": {
+                        "street": "{{jsonPath request.body '$.address.street'}}",
+                        "city": "{{jsonPath request.body '$.address.city'}}",
+                        "postcode": "{{jsonPath request.body '$.address.postcode'}}",
+                        "country_code": "{{jsonPath request.body '$.address.country_code'}}"
+                    }
+                }
+            }
+        },
+        {
+            "name": "POST /vendors - scenario: CIN conflict (state: Conflict)",
+            "scenarioName": "vendor-create",
+            "requiredScenarioState": "Conflict",
+            "metadata": {
+                "wiremock-gui": {
+                    "folder": "/vendor/create"
+                }
+            },
+            "request": {
+                "method": "POST",
+                "url": "/vendors"
+            },
+            "response": {
+                "status": 409,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "jsonBody": {
+                    "message": "A vendor with the given CIN already exists."
+                }
+            }
+        },
+        {
+            "name": "GET /vendors/{uuid} - active vendor (default, no scenario)",
+            "metadata": {
+                "wiremock-gui": {
+                    "folder": "/vendor/get"
+                }
+            },
+            "priority": 1,
+            "request": {
+                "method": "GET",
+                "urlPathPattern": "/vendors/[0-9a-f-]{36}"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "jsonBody": {
+                    "uuid": "{{request.pathSegments.[1]}}",
+                    "name": "Test Vendor s.r.o.",
+                    "cin": "12345678",
+                    "tin": "CZ12345678",
+                    "telephone": "+420111222333",
+                    "email": "vendor@example.com",
+                    "auto_accept_catalog_sets": false,
+                    "status": "active",
+                    "address": {
+                        "street": "Hlavní 1",
+                        "city": "Praha",
+                        "postcode": "110 00",
+                        "country_code": "CZ"
+                    }
+                }
+            }
+        },
+        {
+            "name": "PUT /vendors/{uuid} - update vendor",
+            "metadata": {
+                "wiremock-gui": {
+                    "folder": "/vendor/update"
+                }
+            },
+            "priority": 2,
+            "request": {
+                "method": "PUT",
+                "urlPathPattern": "/vendors/[0-9a-f-]{36}"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "jsonBody": {
+                    "uuid": "{{request.pathSegments.[1]}}",
+                    "name": "{{jsonPath request.body '$.name'}}",
+                    "cin": "12345678",
+                    "tin": "{{jsonPath request.body '$.tin'}}",
+                    "telephone": "{{jsonPath request.body '$.telephone'}}",
+                    "email": "{{jsonPath request.body '$.email'}}",
+                    "auto_accept_catalog_sets": false,
+                    "status": "active",
+                    "address": {
+                        "street": "{{jsonPath request.body '$.address.street'}}",
+                        "city": "{{jsonPath request.body '$.address.city'}}",
+                        "postcode": "{{jsonPath request.body '$.address.postcode'}}",
+                        "country_code": "{{jsonPath request.body '$.address.country_code'}}"
+                    }
+                }
+            }
+        }
+    ]
+}

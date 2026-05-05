@@ -1,0 +1,271 @@
+{
+  "mappings": [
+
+    {
+      "name": "GET Praha stock — page 1 (default, 40 total, 2 pages)",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Praha" } },
+      "priority": 5,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/stock$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            { "sku": "TRI-MEN-CLS-S",   "title": "Pánské tričko Classic – S",   "image": "https://picsum.photos/seed/tri-men-cls-s/80/80",   "qty": 45, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-M",   "title": "Pánské tričko Classic – M",   "image": "https://picsum.photos/seed/tri-men-cls-m/80/80",   "qty": 82, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-L",   "title": "Pánské tričko Classic – L",   "image": "https://picsum.photos/seed/tri-men-cls-l/80/80",   "qty": 63, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-XL",  "title": "Pánské tričko Classic – XL",  "image": "https://picsum.photos/seed/tri-men-cls-xl/80/80",  "qty": 27, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-XXL", "title": "Pánské tričko Classic – XXL", "image": "https://picsum.photos/seed/tri-men-cls-xxl/80/80", "qty":  8, "in_stock": true  },
+            { "sku": "TRI-MEN-SPT-S",   "title": "Pánské tričko Sport – S",     "image": "https://picsum.photos/seed/tri-men-spt-s/80/80",   "qty":  0, "in_stock": false },
+            { "sku": "TRI-MEN-SPT-M",   "title": "Pánské tričko Sport – M",     "image": "https://picsum.photos/seed/tri-men-spt-m/80/80",   "qty": 31, "in_stock": true  },
+            { "sku": "TRI-MEN-SPT-L",   "title": "Pánské tričko Sport – L",     "image": "https://picsum.photos/seed/tri-men-spt-l/80/80",   "qty": 22, "in_stock": true  },
+            { "sku": "TRI-MEN-SPT-XL",  "title": "Pánské tričko Sport – XL",    "image": "https://picsum.photos/seed/tri-men-spt-xl/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "TRI-MEN-SPT-XXL", "title": "Pánské tričko Sport – XXL",   "image": "https://picsum.photos/seed/tri-men-spt-xxl/80/80", "qty":  4, "in_stock": true  },
+            { "sku": "TRI-WOM-BAS-XS",  "title": "Dámské tričko Basic – XS",    "image": "https://picsum.photos/seed/tri-wom-bas-xs/80/80",  "qty": 18, "in_stock": true  },
+            { "sku": "TRI-WOM-BAS-S",   "title": "Dámské tričko Basic – S",     "image": "https://picsum.photos/seed/tri-wom-bas-s/80/80",   "qty": 52, "in_stock": true  },
+            { "sku": "TRI-WOM-BAS-M",   "title": "Dámské tričko Basic – M",     "image": "https://picsum.photos/seed/tri-wom-bas-m/80/80",   "qty": 74, "in_stock": true  },
+            { "sku": "TRI-WOM-BAS-L",   "title": "Dámské tričko Basic – L",     "image": "https://picsum.photos/seed/tri-wom-bas-l/80/80",   "qty": 35, "in_stock": true  },
+            { "sku": "TRI-WOM-BAS-XL",  "title": "Dámské tričko Basic – XL",    "image": "https://picsum.photos/seed/tri-wom-bas-xl/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "TRI-WOM-FLW-XS",  "title": "Dámské tričko Flow – XS",     "image": "https://picsum.photos/seed/tri-wom-flw-xs/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "TRI-WOM-FLW-S",   "title": "Dámské tričko Flow – S",      "image": "https://picsum.photos/seed/tri-wom-flw-s/80/80",   "qty": 11, "in_stock": true  },
+            { "sku": "TRI-WOM-FLW-M",   "title": "Dámské tričko Flow – M",      "image": "https://picsum.photos/seed/tri-wom-flw-m/80/80",   "qty": 29, "in_stock": true  },
+            { "sku": "TRI-WOM-FLW-L",   "title": "Dámské tričko Flow – L",      "image": "https://picsum.photos/seed/tri-wom-flw-l/80/80",   "qty":  6, "in_stock": true  },
+            { "sku": "TRI-WOM-FLW-XL",  "title": "Dámské tričko Flow – XL",     "image": "https://picsum.photos/seed/tri-wom-flw-xl/80/80",  "qty":  0, "in_stock": false }
+          ],
+          "meta": { "current_page": 1, "per_page": 20, "total": 40, "last_page": 2 }
+        }
+      }
+    },
+
+    {
+      "name": "GET Praha stock — page 2",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Praha" } },
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/stock$",
+        "queryParameters": {
+          "page": { "equalTo": "2" }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            { "sku": "JEA-MEN-W30",  "title": "Pánské džíny Slim – W30",         "image": "https://picsum.photos/seed/jea-men-w30/80/80",  "qty": 14, "in_stock": true  },
+            { "sku": "JEA-MEN-W32",  "title": "Pánské džíny Slim – W32",         "image": "https://picsum.photos/seed/jea-men-w32/80/80",  "qty": 38, "in_stock": true  },
+            { "sku": "JEA-MEN-W34",  "title": "Pánské džíny Slim – W34",         "image": "https://picsum.photos/seed/jea-men-w34/80/80",  "qty": 25, "in_stock": true  },
+            { "sku": "JEA-MEN-W36",  "title": "Pánské džíny Slim – W36",         "image": "https://picsum.photos/seed/jea-men-w36/80/80",  "qty":  7, "in_stock": true  },
+            { "sku": "JEA-MEN-W38",  "title": "Pánské džíny Slim – W38",         "image": "https://picsum.photos/seed/jea-men-w38/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "DRE-WOM-XS",   "title": "Dámské šaty Midi – XS",           "image": "https://picsum.photos/seed/dre-wom-xs/80/80",   "qty":  9, "in_stock": true  },
+            { "sku": "DRE-WOM-S",    "title": "Dámské šaty Midi – S",            "image": "https://picsum.photos/seed/dre-wom-s/80/80",    "qty": 21, "in_stock": true  },
+            { "sku": "DRE-WOM-M",    "title": "Dámské šaty Midi – M",            "image": "https://picsum.photos/seed/dre-wom-m/80/80",    "qty": 34, "in_stock": true  },
+            { "sku": "DRE-WOM-L",    "title": "Dámské šaty Midi – L",            "image": "https://picsum.photos/seed/dre-wom-l/80/80",    "qty": 12, "in_stock": true  },
+            { "sku": "DRE-WOM-XL",   "title": "Dámské šaty Midi – XL",           "image": "https://picsum.photos/seed/dre-wom-xl/80/80",   "qty":  0, "in_stock": false },
+            { "sku": "HOD-UNI-S",    "title": "Unisex mikina Comfort – S",        "image": "https://picsum.photos/seed/hod-uni-s/80/80",    "qty": 17, "in_stock": true  },
+            { "sku": "HOD-UNI-M",    "title": "Unisex mikina Comfort – M",        "image": "https://picsum.photos/seed/hod-uni-m/80/80",    "qty": 44, "in_stock": true  },
+            { "sku": "HOD-UNI-L",    "title": "Unisex mikina Comfort – L",        "image": "https://picsum.photos/seed/hod-uni-l/80/80",    "qty": 39, "in_stock": true  },
+            { "sku": "HOD-UNI-XL",   "title": "Unisex mikina Comfort – XL",       "image": "https://picsum.photos/seed/hod-uni-xl/80/80",   "qty": 23, "in_stock": true  },
+            { "sku": "HOD-UNI-XXL",  "title": "Unisex mikina Comfort – XXL",      "image": "https://picsum.photos/seed/hod-uni-xxl/80/80",  "qty":  5, "in_stock": true  },
+            { "sku": "JAC-MEN-S",    "title": "Pánská bunda Outdoor – S",         "image": "https://picsum.photos/seed/jac-men-s/80/80",    "qty":  0, "in_stock": false },
+            { "sku": "JAC-MEN-M",    "title": "Pánská bunda Outdoor – M",         "image": "https://picsum.photos/seed/jac-men-m/80/80",    "qty": 16, "in_stock": true  },
+            { "sku": "JAC-MEN-L",    "title": "Pánská bunda Outdoor – L",         "image": "https://picsum.photos/seed/jac-men-l/80/80",    "qty": 28, "in_stock": true  },
+            { "sku": "JAC-MEN-XL",   "title": "Pánská bunda Outdoor – XL",        "image": "https://picsum.photos/seed/jac-men-xl/80/80",   "qty": 11, "in_stock": true  },
+            { "sku": "JAC-MEN-XXL",  "title": "Pánská bunda Outdoor – XXL",       "image": "https://picsum.photos/seed/jac-men-xxl/80/80",  "qty":  0, "in_stock": false }
+          ],
+          "meta": { "current_page": 2, "per_page": 20, "total": 40, "last_page": 2 }
+        }
+      }
+    },
+
+    {
+      "name": "GET Praha stock — perPage=10, page 1 (tests per-page selector, 4 pages)",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Praha" } },
+      "priority": 2,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/stock$",
+        "queryParameters": {
+          "perPage": { "equalTo": "10" }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            { "sku": "TRI-MEN-CLS-S",   "title": "Pánské tričko Classic – S",   "image": "https://picsum.photos/seed/tri-men-cls-s/80/80",   "qty": 45, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-M",   "title": "Pánské tričko Classic – M",   "image": "https://picsum.photos/seed/tri-men-cls-m/80/80",   "qty": 82, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-L",   "title": "Pánské tričko Classic – L",   "image": "https://picsum.photos/seed/tri-men-cls-l/80/80",   "qty": 63, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-XL",  "title": "Pánské tričko Classic – XL",  "image": "https://picsum.photos/seed/tri-men-cls-xl/80/80",  "qty": 27, "in_stock": true  },
+            { "sku": "TRI-MEN-CLS-XXL", "title": "Pánské tričko Classic – XXL", "image": "https://picsum.photos/seed/tri-men-cls-xxl/80/80", "qty":  8, "in_stock": true  },
+            { "sku": "TRI-MEN-SPT-S",   "title": "Pánské tričko Sport – S",     "image": "https://picsum.photos/seed/tri-men-spt-s/80/80",   "qty":  0, "in_stock": false },
+            { "sku": "TRI-MEN-SPT-M",   "title": "Pánské tričko Sport – M",     "image": "https://picsum.photos/seed/tri-men-spt-m/80/80",   "qty": 31, "in_stock": true  },
+            { "sku": "TRI-MEN-SPT-L",   "title": "Pánské tričko Sport – L",     "image": "https://picsum.photos/seed/tri-men-spt-l/80/80",   "qty": 22, "in_stock": true  },
+            { "sku": "TRI-MEN-SPT-XL",  "title": "Pánské tričko Sport – XL",    "image": "https://picsum.photos/seed/tri-men-spt-xl/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "TRI-MEN-SPT-XXL", "title": "Pánské tričko Sport – XXL",   "image": "https://picsum.photos/seed/tri-men-spt-xxl/80/80", "qty":  4, "in_stock": true  }
+          ],
+          "meta": { "current_page": 1, "per_page": 10, "total": 40, "last_page": 4 }
+        }
+      }
+    },
+
+    {
+      "name": "GET Praha stock — search 'mikina' (5 hoodie results)",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Praha" } },
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/stock$",
+        "queryParameters": {
+          "searchValue": { "equalTo": "mikina" }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            { "sku": "HOD-UNI-S",   "title": "Unisex mikina Comfort – S",   "image": "https://picsum.photos/seed/hod-uni-s/80/80",   "qty": 17, "in_stock": true },
+            { "sku": "HOD-UNI-M",   "title": "Unisex mikina Comfort – M",   "image": "https://picsum.photos/seed/hod-uni-m/80/80",   "qty": 44, "in_stock": true },
+            { "sku": "HOD-UNI-L",   "title": "Unisex mikina Comfort – L",   "image": "https://picsum.photos/seed/hod-uni-l/80/80",   "qty": 39, "in_stock": true },
+            { "sku": "HOD-UNI-XL",  "title": "Unisex mikina Comfort – XL",  "image": "https://picsum.photos/seed/hod-uni-xl/80/80",  "qty": 23, "in_stock": true },
+            { "sku": "HOD-UNI-XXL", "title": "Unisex mikina Comfort – XXL", "image": "https://picsum.photos/seed/hod-uni-xxl/80/80", "qty":  5, "in_stock": true }
+          ],
+          "meta": { "current_page": 1, "per_page": 20, "total": 5, "last_page": 1 }
+        }
+      }
+    },
+
+    {
+      "name": "GET Praha stock — search returns empty (no match)",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Praha" } },
+      "priority": 1,
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/stock$",
+        "queryParameters": {
+          "searchValue": { "equalTo": "xyznonexistent" }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [],
+          "meta": { "current_page": 1, "per_page": 20, "total": 0, "last_page": 1 }
+        }
+      }
+    },
+
+    {
+      "name": "GET Brno stock — 12 accessories, ~50% out of stock (good for bulk actions)",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Brno" } },
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb/stock$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            { "sku": "ACC-BRN-CAP-SM",  "title": "Čepice Beanie – S/M",           "image": "https://picsum.photos/seed/acc-brn-cap-sm/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "ACC-BRN-CAP-LX",  "title": "Čepice Beanie – L/XL",          "image": "https://picsum.photos/seed/acc-brn-cap-lx/80/80",  "qty":  3, "in_stock": true  },
+            { "sku": "ACC-BRN-SCF-BLU", "title": "Šála Comfort – modrá",          "image": "https://picsum.photos/seed/acc-brn-scf-blu/80/80", "qty":  8, "in_stock": true  },
+            { "sku": "ACC-BRN-SCF-GRY", "title": "Šála Comfort – šedá",           "image": "https://picsum.photos/seed/acc-brn-scf-gry/80/80", "qty":  0, "in_stock": false },
+            { "sku": "ACC-BRN-SCF-BLK", "title": "Šála Comfort – černá",          "image": "https://picsum.photos/seed/acc-brn-scf-blk/80/80", "qty": 14, "in_stock": true  },
+            { "sku": "ACC-BRN-SOX-35",  "title": "Ponožky Sport – 35–38",         "image": "https://picsum.photos/seed/acc-brn-sox-35/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "ACC-BRN-SOX-39",  "title": "Ponožky Sport – 39–42",         "image": "https://picsum.photos/seed/acc-brn-sox-39/80/80",  "qty": 22, "in_stock": true  },
+            { "sku": "ACC-BRN-SOX-43",  "title": "Ponožky Sport – 43–46",         "image": "https://picsum.photos/seed/acc-brn-sox-43/80/80",  "qty": 11, "in_stock": true  },
+            { "sku": "ACC-BRN-SOX-47",  "title": "Ponožky Sport – 47–50",         "image": "https://picsum.photos/seed/acc-brn-sox-47/80/80",  "qty":  0, "in_stock": false },
+            { "sku": "ACC-BRN-BLT-S",   "title": "Kožený pásek – S (70–80 cm)",   "image": "https://picsum.photos/seed/acc-brn-blt-s/80/80",   "qty":  5, "in_stock": true  },
+            { "sku": "ACC-BRN-BLT-M",   "title": "Kožený pásek – M (85–95 cm)",   "image": "https://picsum.photos/seed/acc-brn-blt-m/80/80",   "qty":  0, "in_stock": false },
+            { "sku": "ACC-BRN-BLT-L",   "title": "Kožený pásek – L (100–115 cm)", "image": "https://picsum.photos/seed/acc-brn-blt-l/80/80",   "qty":  2, "in_stock": true  }
+          ],
+          "meta": { "current_page": 1, "per_page": 20, "total": 12, "last_page": 1 }
+        }
+      }
+    },
+
+    {
+      "name": "GET Ostrava stock — 8 children's products, all in stock, high qty",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Ostrava" } },
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/cccccccc-cccc-cccc-cccc-cccccccccccc/stock$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [
+            { "sku": "KID-TRI-86",  "title": "Dětské tričko Logo – 86",  "image": "https://picsum.photos/seed/kid-tri-86/80/80",  "qty": 40, "in_stock": true },
+            { "sku": "KID-TRI-92",  "title": "Dětské tričko Logo – 92",  "image": "https://picsum.photos/seed/kid-tri-92/80/80",  "qty": 55, "in_stock": true },
+            { "sku": "KID-TRI-98",  "title": "Dětské tričko Logo – 98",  "image": "https://picsum.photos/seed/kid-tri-98/80/80",  "qty": 62, "in_stock": true },
+            { "sku": "KID-TRI-104", "title": "Dětské tričko Logo – 104", "image": "https://picsum.photos/seed/kid-tri-104/80/80", "qty": 48, "in_stock": true },
+            { "sku": "KID-KAL-86",  "title": "Dětské kalhoty – 86",      "image": "https://picsum.photos/seed/kid-kal-86/80/80",  "qty": 31, "in_stock": true },
+            { "sku": "KID-KAL-92",  "title": "Dětské kalhoty – 92",      "image": "https://picsum.photos/seed/kid-kal-92/80/80",  "qty": 44, "in_stock": true },
+            { "sku": "KID-KAL-98",  "title": "Dětské kalhoty – 98",      "image": "https://picsum.photos/seed/kid-kal-98/80/80",  "qty": 37, "in_stock": true },
+            { "sku": "KID-KAL-104", "title": "Dětské kalhoty – 104",     "image": "https://picsum.photos/seed/kid-kal-104/80/80", "qty": 29, "in_stock": true }
+          ],
+          "meta": { "current_page": 1, "per_page": 20, "total": 8, "last_page": 1 }
+        }
+      }
+    },
+
+    {
+      "name": "GET Plzeň stock — empty (newly opened branch, tests empty state UI)",
+      "metadata": { "wiremock-gui": { "folder": "/stock/Plzen" } },
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/dddddddd-dddd-dddd-dddd-dddddddddddd/stock$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+          "data": [],
+          "meta": { "current_page": 1, "per_page": 20, "total": 0, "last_page": 1 }
+        }
+      }
+    },
+
+    {
+      "name": "PATCH stock — 200 success (state: Started)",
+      "scenarioName": "stock-save",
+      "requiredScenarioState": "Started",
+      "metadata": { "wiremock-gui": { "folder": "/stock/save" } },
+      "request": {
+        "method": "PATCH",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/stock$"
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "success": true }
+      }
+    },
+
+    {
+      "name": "PATCH stock — 502 Magento error (state: Save-Error — triggers error banner + retry flow)",
+      "scenarioName": "stock-save",
+      "requiredScenarioState": "Save-Error",
+      "metadata": { "wiremock-gui": { "folder": "/stock/save" } },
+      "request": {
+        "method": "PATCH",
+        "urlPathPattern": "^/vendors/[0-9a-f-]{36}/branches/[0-9a-f-]{36}/stock$"
+      },
+      "response": {
+        "status": 502,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": { "message": "Upstream Magento service unavailable" }
+      }
+    }
+
+  ]
+}
