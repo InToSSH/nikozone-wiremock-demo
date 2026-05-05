@@ -8,13 +8,18 @@ resource type — no manual Traefik / labels work required.
 
 ```
 wiremock_demo/
-├── docker-compose.yml          # Coolify-ready: uses SERVICE_FQDN_* magic env vars, no host ports
-├── docker-compose.local.yml    # Local-only override that publishes host ports for dev use
-├── .env.example                # Documents local port overrides
+├── docker-compose.yml          # Two services: wiremock (built locally) + mailhog
+├── Dockerfile                  # Bakes wiremock/ into the image (avoids bind-mount path issues)
+├── .env.example                # Documents host port overrides
 └── wiremock/
     ├── mappings/               # JSON stub mappings (orders, branches, vendors, stock, catalog sets)
     └── __files/                # Static response body files (currently empty — all stubs use inline jsonBody)
 ```
+
+> The mappings are **baked into the WireMock image** at build time rather than bind-mounted. This
+> sidesteps relative-path resolution issues on Coolify (where `./wiremock` would otherwise resolve
+> against the repo root, not this sub-folder). Edit a mapping → commit → Coolify rebuilds and
+> redeploys automatically.
 
 ## Services
 

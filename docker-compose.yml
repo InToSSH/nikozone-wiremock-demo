@@ -1,12 +1,13 @@
 services:
   wiremock:
-    image: holomekc/wiremock-gui:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nikozone-wiremock-demo:latest
     restart: unless-stopped
     ports:
       - "${WIREMOCK_API_PORT:-8088}:8089"
       - "${WIREMOCK_GUI_PORT:-8087}:8080"
-    volumes:
-      - ./wiremock:/home/wiremock
     command: --port 8089 --global-response-templating --verbose --max-request-journal 1000
 
   mailhog:
