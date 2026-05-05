@@ -2,14 +2,9 @@ services:
   wiremock:
     image: holomekc/wiremock-gui:latest
     restart: unless-stopped
-    environment:
-      # Coolify magic env vars — assign domains in the Coolify UI and they populate at deploy time.
-      # API on internal port 8089, GUI on internal port 8080.
-      - SERVICE_FQDN_WIREMOCK_8089
-      - SERVICE_FQDN_WIREMOCK_8080
-    expose:
-      - "8089"
-      - "8080"
+    ports:
+      - "${WIREMOCK_API_PORT:-8088}:8089"
+      - "${WIREMOCK_GUI_PORT:-8087}:8080"
     volumes:
       - ./wiremock:/home/wiremock
     command: --port 8089 --global-response-templating --verbose --max-request-journal 1000
@@ -17,10 +12,6 @@ services:
   mailhog:
     image: mailhog/mailhog:latest
     restart: unless-stopped
-    environment:
-      # Web UI gets a public domain via Coolify; SMTP (1025) is intentionally NOT exposed publicly.
-      - SERVICE_FQDN_MAILHOG_1025
-      - SERVICE_FQDN_MAILHOG_8025
-    expose:
-      - "1025"
-      - "8025"
+    ports:
+      - "${MAILHOG_SMTP_PORT:-1025}:1025"
+      - "${MAILHOG_UI_PORT:-8025}:8025"
