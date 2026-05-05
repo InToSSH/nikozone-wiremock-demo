@@ -13,18 +13,13 @@ services:
     volumes:
       - ./wiremock:/home/wiremock
     command: --port 8089 --global-response-templating --verbose --max-request-journal 1000
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8089/__admin/health || exit 1"]
-      interval: 30s
-      timeout: 5s
-      retries: 5
-      start_period: 20s
 
   mailhog:
     image: mailhog/mailhog:latest
     restart: unless-stopped
     environment:
       # Web UI gets a public domain via Coolify; SMTP (1025) is intentionally NOT exposed publicly.
+      - SERVICE_FQDN_MAILHOG_1025
       - SERVICE_FQDN_MAILHOG_8025
     expose:
       - "1025"
